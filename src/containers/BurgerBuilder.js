@@ -22,7 +22,8 @@ class BurgerBuilder extends Component {
     totalPrice: 4,
     purchasable: false,
     modalShow: false,
-    loading: false
+    loading: false,
+    error: false
   };
 
   componentDidMount() {
@@ -30,7 +31,9 @@ class BurgerBuilder extends Component {
       .get("https://react-burger-builder-80c92.firebaseio.com/ingredients.json")
       .then((res) => {
         this.setState({ ingredients: res.data });
-      });
+      }).catch(err => {
+        this.setState({error: true})
+      })
   }
 
   modalShowHandler = () => {
@@ -119,7 +122,7 @@ class BurgerBuilder extends Component {
     }
 
     let orderSummary = null;
-    let burger = <Spinner />;
+    let burger = this.state.error ?<p>Ingredients can not loaded..!</p> : <Spinner />;
 
     if (this.state.ingredients) {
       burger = (
