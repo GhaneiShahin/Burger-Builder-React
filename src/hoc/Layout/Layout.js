@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 
 import classes from "./Layout.css";
-import Toolbar from "../Navigations/Toolbar/Toolbar";
-import SideDrawer from "../Navigations/SideDrawer/SideDrawer";
+import Toolbar from "../../components/Navigations/Toolbar/Toolbar";
+import SideDrawer from "../../components/Navigations/SideDrawer/SideDrawer";
 
 const Layout = ({ children }) => {
   const [showSideDrawer, setShowSideDrawer] = useState(false);
