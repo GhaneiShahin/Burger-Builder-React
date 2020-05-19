@@ -6,9 +6,9 @@ import BuildControl from "./BuildControl/BuildControl";
 const controls = [
   { label: "Tomato", type: "tomato" },
   { label: "Salad", type: "salad" },
-  { label: "Meat", type: "meat" },
   { label: "Cheese", type: "cheese" },
   { label: "Bacon", type: "bacon" },
+  { label: "Meat", type: "meat" },
 ];
 
 const BuildControls = (props) => {
@@ -22,7 +22,7 @@ const BuildControls = (props) => {
           key={ctrl.label}
           label={ctrl.label}
           added={() => props.ingredientsAdded(ctrl.type)}
-          removed={() => props.ingredientsRemove(ctrl.type)}
+          removed={() => props.ingredientRemoved(ctrl.type)}
           disabled={props.disabled[ctrl.type]}
         />
       ))}
